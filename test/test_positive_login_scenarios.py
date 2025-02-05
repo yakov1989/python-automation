@@ -37,5 +37,3 @@ def test_standard_user_login(browser):
     products_page_title = browser.find_element(By.XPATH, value='//*[@data-test="title"]').text
     print(f"{products_page_title = }")
     assert products_page_title == "Products"
-
-
