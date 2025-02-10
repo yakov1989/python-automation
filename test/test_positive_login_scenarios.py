@@ -1,20 +1,9 @@
-import pytest
-from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
+
 from pages.login_page import LoginPage
 
 
 # yield allows to run the test and to return to the function
-@pytest.fixture()
-def browser():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    # allows Selenium to wait for the page to load to search for certain element
-    driver.implicitly_wait(5)
-    yield driver
-    print("after test")
-    sleep(3)
 
 
 def test_standard_user_login(browser):

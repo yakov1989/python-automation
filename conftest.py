@@ -8,12 +8,10 @@ from selenium.webdriver.chrome.options import Options
 @pytest.fixture()
 def browser():
     options = Options()
-    Options.add_argument("--headless")
-    driver = webdriver.chrome(options=options)
-    driver = webdriver.Chrome()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     # allows Selenium to wait for the page to load to search for certain element
     driver.implicitly_wait(5)
     yield driver
-    print("after test")
     sleep(3)
