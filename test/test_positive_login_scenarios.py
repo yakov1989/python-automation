@@ -21,3 +21,4 @@ def test_standard_user_login(browser):
     products_page = ProductsPage(browser=browser)
     products_page.validate_product_page_title()
     products_page.validate_products_page_url()
+
