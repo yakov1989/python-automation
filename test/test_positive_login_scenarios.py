@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
-
 from pages.login_page import LoginPage
+from pages.products_page import ProductsPage
 
 
 # yield allows to run the test and to return to the function
@@ -18,11 +18,6 @@ def test_standard_user_login(browser):
     login_page.click_login_button()
 
     # Validation of redirection
-    current_url = browser.current_url
-    print(f"{current_url=}")
-
-    assert current_url == "https://www.saucedemo.com/inventory.html"
-    # Search using XPATH
-    products_page_title = browser.find_element(By.XPATH, value='//*[@data-test="title"]').text
-    print(f"{products_page_title = }")
-    assert products_page_title == "Products"
+    products_page = ProductsPage(browser=browser)
+    products_page.validate_product_page_title()
+    products_page.validate_products_page_url()
